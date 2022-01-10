@@ -2,15 +2,14 @@
 class Product {
     protected $item_name;
     protected $price;
-    protected $discount;
 
     public function __construct($item_name, $price) {
         $this->item_name = $item_name;
         $this->price = $price;
     }
 
-    public function setDiscount($age) {
-        $age > 18 ? $this->discount = 0 : $this->discount = 10;
+    public function getDiscount($age) {
+        return $age < 30 ? $this->price - ($this->price * 10 / 100) : $this->price;
     }
 
     // Getters
@@ -20,9 +19,5 @@ class Product {
 
     public function getPrice() {
         return $this->price;
-    }
-
-    public function getDiscount() {
-        return $this->discount;
     }
 }

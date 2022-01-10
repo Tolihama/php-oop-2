@@ -17,10 +17,7 @@ $adminOne = new Admin([
     'age'=>39
 ]);
 
-var_dump($userOne);
-
 $productOne = new Product('Dixan', 20);
-var_dump($productOne);
 
 ?>
 
@@ -35,6 +32,10 @@ var_dump($productOne);
 <body>
     <h2><?php echo "{$userOne->getRole()}: {$userOne->getFirstName()} {$userOne->getLastName()} ({$userOne->getAge()})"; ?></h2>
     <h2><?php echo "{$adminOne->getRole()}: {$adminOne->getFirstName()} {$adminOne->getLastName()} ({$adminOne->getAge()})"; ?></h2>
+    <hr>
+    <h2><?php echo "Product: {$productOne->getItemName()} (€{$productOne->getPrice()})"; ?></h2>
+    <h3><?php echo "Prezzo per {$userOne->getFirstName()} {$userOne->getLastName()}: €{$productOne->getDiscount($userOne->getAge())}"?></h3>
+    <h3><?php echo "Prezzo per {$adminOne->getFirstName()} {$adminOne->getLastName()}: €{$productOne->getDiscount($adminOne->getAge())}"?></h3>
     
 </body>
 </html>
